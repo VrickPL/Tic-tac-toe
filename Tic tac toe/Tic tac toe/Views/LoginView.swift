@@ -29,10 +29,14 @@ struct LoginView: View {
             } label: {
                 HStack {
                     Spacer()
-                    Text("login").foregroundColor(.white).padding().bold()
+                    Text("login")
+                        .foregroundColor(.white)
+                        .padding()
+                        .bold()
                     Spacer()
                 }
-                .background(.blue).cornerRadius(5)
+                .background(.blue)
+                .cornerRadius(5)
             }
             .padding()
         }

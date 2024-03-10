@@ -17,8 +17,10 @@ struct RegisterView: View {
             Button {
                 //TODO: load image
             } label: {
-                Image(systemName: "person.fill").font(.system(size: 90)).padding()
-                .foregroundColor(.black)
+                Image(systemName: "person.fill")
+                    .font(.system(size: 90))
+                    .padding()
+                    .foregroundColor(.black)
             }
             .overlay(RoundedRectangle(cornerRadius: 64).stroke(Color.black, lineWidth: 3))
             
@@ -38,12 +40,16 @@ struct RegisterView: View {
                 } label: {
                     HStack {
                         Spacer()
-                        Text("create_account").foregroundColor(.white).padding().bold()
+                        Text("create_account")
+                            .foregroundColor(.white)
+                            .padding()
+                            .bold()
                         Spacer()
                     }
                     .background(.blue).cornerRadius(5)
                 }
-            }.padding()
+            }
+            .padding()
         }
         .padding()
     }
