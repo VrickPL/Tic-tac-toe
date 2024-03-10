@@ -14,6 +14,14 @@
 		7463A4A82B9E2FE600C3FBC9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 7463A4A72B9E2FE600C3FBC9 /* Localizable.xcstrings */; };
 		7463A4AA2B9E300600C3FBC9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463A4A92B9E300600C3FBC9 /* LoginView.swift */; };
 		7463A4AC2B9E301500C3FBC9 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463A4AB2B9E301500C3FBC9 /* RegisterView.swift */; };
+		7463A4B12B9E37F900C3FBC9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7463A4B02B9E37F900C3FBC9 /* GoogleService-Info.plist */; };
+		7463A4B42B9E39A100C3FBC9 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463A4B32B9E39A100C3FBC9 /* FirebaseManager.swift */; };
+		7463A4B62B9E3AF800C3FBC9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7463A4B52B9E3AF800C3FBC9 /* FirebaseAuth */; };
+		7463A4B82B9E3AF800C3FBC9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7463A4B72B9E3AF800C3FBC9 /* FirebaseStorage */; };
+		7463A4BB2B9E3BB200C3FBC9 /* SimpleToast in Frameworks */ = {isa = PBXBuildFile; productRef = 7463A4BA2B9E3BB200C3FBC9 /* SimpleToast */; };
+		7463A4BD2B9E3C5900C3FBC9 /* ToastPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463A4BC2B9E3C5900C3FBC9 /* ToastPopUpView.swift */; };
+		7463A4C02B9E3C8500C3FBC9 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463A4BF2B9E3C8500C3FBC9 /* ImagePicker.swift */; };
+		7463A4C22B9E3E6B00C3FBC9 /* ToastOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463A4C12B9E3E6B00C3FBC9 /* ToastOptions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +33,11 @@
 		7463A4A72B9E2FE600C3FBC9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		7463A4A92B9E300600C3FBC9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7463A4AB2B9E301500C3FBC9 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		7463A4B02B9E37F900C3FBC9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7463A4B32B9E39A100C3FBC9 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		7463A4BC2B9E3C5900C3FBC9 /* ToastPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastPopUpView.swift; sourceTree = "<group>"; };
+		7463A4BF2B9E3C8500C3FBC9 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		7463A4C12B9E3E6B00C3FBC9 /* ToastOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastOptions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +45,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7463A4B62B9E3AF800C3FBC9 /* FirebaseAuth in Frameworks */,
+				7463A4BB2B9E3BB200C3FBC9 /* SimpleToast in Frameworks */,
+				7463A4B82B9E3AF800C3FBC9 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,9 +74,12 @@
 			isa = PBXGroup;
 			children = (
 				7463A4962B9E2C1100C3FBC9 /* Tic_tac_toeApp.swift */,
+				7463A4BE2B9E3C7500C3FBC9 /* Utils */,
+				7463A4B22B9E38F700C3FBC9 /* Managers */,
 				7463A4A42B9E2FAC00C3FBC9 /* Views */,
 				7463A49A2B9E2C1400C3FBC9 /* Assets.xcassets */,
 				7463A4A72B9E2FE600C3FBC9 /* Localizable.xcstrings */,
+				7463A4B02B9E37F900C3FBC9 /* GoogleService-Info.plist */,
 				7463A49C2B9E2C1400C3FBC9 /* Preview Content */,
 			);
 			path = "Tic tac toe";
@@ -80,8 +99,26 @@
 				7463A4982B9E2C1100C3FBC9 /* ContentView.swift */,
 				7463A4A92B9E300600C3FBC9 /* LoginView.swift */,
 				7463A4AB2B9E301500C3FBC9 /* RegisterView.swift */,
+				7463A4BC2B9E3C5900C3FBC9 /* ToastPopUpView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7463A4B22B9E38F700C3FBC9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				7463A4B32B9E39A100C3FBC9 /* FirebaseManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		7463A4BE2B9E3C7500C3FBC9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7463A4BF2B9E3C8500C3FBC9 /* ImagePicker.swift */,
+				7463A4C12B9E3E6B00C3FBC9 /* ToastOptions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,6 +137,11 @@
 			dependencies = (
 			);
 			name = "Tic tac toe";
+			packageProductDependencies = (
+				7463A4B52B9E3AF800C3FBC9 /* FirebaseAuth */,
+				7463A4B72B9E3AF800C3FBC9 /* FirebaseStorage */,
+				7463A4BA2B9E3BB200C3FBC9 /* SimpleToast */,
+			);
 			productName = "Tic tac toe";
 			productReference = 7463A4932B9E2C1100C3FBC9 /* Tic tac toe.app */;
 			productType = "com.apple.product-type.application";
@@ -131,6 +173,7 @@
 			mainGroup = 7463A48A2B9E2C1100C3FBC9;
 			packageReferences = (
 				7463A4AF2B9E379400C3FBC9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				7463A4B92B9E3BB200C3FBC9 /* XCRemoteSwiftPackageReference "SimpleToast" */,
 			);
 			productRefGroup = 7463A4942B9E2C1100C3FBC9 /* Products */;
 			projectDirPath = "";
@@ -147,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7463A49E2B9E2C1400C3FBC9 /* Preview Assets.xcassets in Resources */,
+				7463A4B12B9E37F900C3FBC9 /* GoogleService-Info.plist in Resources */,
 				7463A49B2B9E2C1400C3FBC9 /* Assets.xcassets in Resources */,
 				7463A4A82B9E2FE600C3FBC9 /* Localizable.xcstrings in Resources */,
 			);
@@ -161,6 +205,10 @@
 			files = (
 				7463A4AA2B9E300600C3FBC9 /* LoginView.swift in Sources */,
 				7463A4AC2B9E301500C3FBC9 /* RegisterView.swift in Sources */,
+				7463A4B42B9E39A100C3FBC9 /* FirebaseManager.swift in Sources */,
+				7463A4C02B9E3C8500C3FBC9 /* ImagePicker.swift in Sources */,
+				7463A4C22B9E3E6B00C3FBC9 /* ToastOptions.swift in Sources */,
+				7463A4BD2B9E3C5900C3FBC9 /* ToastPopUpView.swift in Sources */,
 				7463A4992B9E2C1100C3FBC9 /* ContentView.swift in Sources */,
 				7463A4972B9E2C1100C3FBC9 /* Tic_tac_toeApp.swift in Sources */,
 			);
@@ -378,7 +426,33 @@
 				minimumVersion = 10.22.1;
 			};
 		};
+		7463A4B92B9E3BB200C3FBC9 /* XCRemoteSwiftPackageReference "SimpleToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sanzaru/SimpleToast";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7463A4B52B9E3AF800C3FBC9 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7463A4AF2B9E379400C3FBC9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		7463A4B72B9E3AF800C3FBC9 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7463A4AF2B9E379400C3FBC9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		7463A4BA2B9E3BB200C3FBC9 /* SimpleToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7463A4B92B9E3BB200C3FBC9 /* XCRemoteSwiftPackageReference "SimpleToast" */;
+			productName = SimpleToast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7463A48B2B9E2C1100C3FBC9 /* Project object */;
 }

@@ -6,10 +6,22 @@
 //
 
 import SwiftUI
+import Firebase
+import SimpleToast
 
 struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
+
+    @State private var showToast = false
+    @State private var loggedInSuccess = false
+    private let toastOptions = SimpleToastOptions(
+        alignment: .top,
+        hideAfter: 2,
+        animation: .default,
+        modifierType: .slide,
+        dismissOnTap: true
+    )
 
 
     var body: some View {
@@ -25,23 +37,31 @@ struct LoginView: View {
             .cornerRadius(5)
 
             Button {
-                // TODO: login
+                loggedInSuccess = FirebaseManager.shared.logIn(withEmail: email, password: password)
+                showToast.toggle()
             } label: {
                 HStack {
                     Spacer()
-                    Text("login")
-                        .foregroundColor(.white)
-                        .padding()
-                        .bold()
+                    Text("login").foregroundColor(.white).padding().bold()
                     Spacer()
                 }
-                .background(.blue)
-                .cornerRadius(5)
+                .background(.blue).cornerRadius(5)
             }
             .padding()
         }
         .padding()
+        .simpleToast(isPresented: $showToast, options: toastOptions, onDismiss: {
+            //TODO: login and show new view
+        }) {
+            if loggedInSuccess {
+                ToastPopUpView(text: "login_success", color: Color.green)
+            } else {
+                ToastPopUpView(text: "login_failed", color: Color.red)
+            }
+        }
     }
+    
+    
  }
 
 #Preview("English") {
