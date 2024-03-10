@@ -47,6 +47,7 @@ struct RegisterView: View {
                 .foregroundColor(.black)
             }
             .overlay(RoundedRectangle(cornerRadius: 64).stroke(Color.black, lineWidth: 3))
+            .padding(.bottom)
             
             Group {
                 TextField("email", text: $email)
@@ -70,7 +71,9 @@ struct RegisterView: View {
                     }
                     .background(.blue).cornerRadius(5)
                 }
-            }.padding()
+                SignByApple()
+            }
+            .padding()
         }
         .padding()
         .simpleToast(isPresented: $showToast, options: toastOptions, onDismiss: {

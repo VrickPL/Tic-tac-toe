@@ -35,17 +35,20 @@ struct LoginView: View {
             .padding(12)
             .background(.white)
             .cornerRadius(5)
-
-            Button {
-                loggedInSuccess = FirebaseManager.shared.logIn(withEmail: email, password: password)
-                showToast.toggle()
-            } label: {
-                HStack {
-                    Spacer()
-                    Text("login").foregroundColor(.white).padding().bold()
-                    Spacer()
+            
+            VStack {
+                Button {
+                    loggedInSuccess = FirebaseManager.shared.logIn(withEmail: email, password: password)
+                    showToast.toggle()
+                } label: {
+                    HStack {
+                        Spacer()
+                        Text("login").foregroundColor(.white).padding().bold()
+                        Spacer()
+                    }
+                    .background(.blue).cornerRadius(5)
                 }
-                .background(.blue).cornerRadius(5)
+                SignByApple(signUpBool: false)
             }
             .padding()
         }
