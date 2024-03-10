@@ -24,7 +24,6 @@ struct ContentView: View {
                 } else {
                     RegisterView()
                 }
-
             }
             .navigationTitle(isLoginMode ? "login" : "create_account")
             .background(Color(.init(white: 0, alpha: 0.05)))

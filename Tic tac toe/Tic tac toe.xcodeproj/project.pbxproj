@@ -22,6 +22,7 @@
 		7463A4BD2B9E3C5900C3FBC9 /* ToastPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463A4BC2B9E3C5900C3FBC9 /* ToastPopUpView.swift */; };
 		7463A4C02B9E3C8500C3FBC9 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463A4BF2B9E3C8500C3FBC9 /* ImagePicker.swift */; };
 		7463A4C22B9E3E6B00C3FBC9 /* ToastOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463A4C12B9E3E6B00C3FBC9 /* ToastOptions.swift */; };
+		7463A4C42B9E457000C3FBC9 /* SignByAppleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463A4C32B9E457000C3FBC9 /* SignByAppleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		7463A4BC2B9E3C5900C3FBC9 /* ToastPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastPopUpView.swift; sourceTree = "<group>"; };
 		7463A4BF2B9E3C8500C3FBC9 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		7463A4C12B9E3E6B00C3FBC9 /* ToastOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastOptions.swift; sourceTree = "<group>"; };
+		7463A4C32B9E457000C3FBC9 /* SignByAppleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignByAppleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				7463A4A92B9E300600C3FBC9 /* LoginView.swift */,
 				7463A4AB2B9E301500C3FBC9 /* RegisterView.swift */,
 				7463A4BC2B9E3C5900C3FBC9 /* ToastPopUpView.swift */,
+				7463A4C32B9E457000C3FBC9 /* SignByAppleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			files = (
 				7463A4AA2B9E300600C3FBC9 /* LoginView.swift in Sources */,
 				7463A4AC2B9E301500C3FBC9 /* RegisterView.swift in Sources */,
+				7463A4C42B9E457000C3FBC9 /* SignByAppleView.swift in Sources */,
 				7463A4B42B9E39A100C3FBC9 /* FirebaseManager.swift in Sources */,
 				7463A4C02B9E3C8500C3FBC9 /* ImagePicker.swift in Sources */,
 				7463A4C22B9E3E6B00C3FBC9 /* ToastOptions.swift in Sources */,
