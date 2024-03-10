@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 enum ToastOptions: String {
-    //TODO: add these to translations and create everywhere dark mode
     case ACCOUNT_CREATED_SUCCESS = "account_created_success"
     case ACCOUNT_CREATED_FAILED = "account_created_failed"
     case STORED_IMAGE_SUCCESS = "stored_image_success"

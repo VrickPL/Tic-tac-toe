@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import TipKit
 
 @main
 struct Tic_tac_toeApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .task {
+                    try? Tips.configure([
+                        .datastoreLocation(.applicationDefault)
+                    ])
+                }
         }
     }
 }

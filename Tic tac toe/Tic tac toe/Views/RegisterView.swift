@@ -8,6 +8,7 @@
 import SwiftUI
 import Firebase
 import SimpleToast
+import TipKit
 
 struct RegisterView: View {
     @State private var email = ""
@@ -44,9 +45,11 @@ struct RegisterView: View {
                         Image(systemName: "person.fill").font(.system(size: 90)).padding()
                     }
                 }
+                .popoverTip(ImageButtonTip(), arrowEdge: .bottom)
                 .foregroundColor(.black)
             }
             .overlay(RoundedRectangle(cornerRadius: 64).stroke(Color.black, lineWidth: 3))
+            .padding(.bottom)
             
             Group {
                 TextField("email", text: $email)

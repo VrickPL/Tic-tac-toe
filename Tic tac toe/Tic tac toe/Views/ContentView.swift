@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 struct ContentView: View {
     @State private var isLoginMode = false
@@ -26,8 +27,13 @@ struct ContentView: View {
                 }
 
             }
-            .navigationTitle(isLoginMode ? "login" : "create_account")
+            .navigationTitle("APP_NAME")
             .background(Color(.init(white: 0, alpha: 0.05)))
+            .overlay(
+                Text(LocalizedStringKey("author"))
+                    .foregroundStyle(.gray)
+            , alignment: .bottom)
+            
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
@@ -41,4 +47,10 @@ struct ContentView: View {
 #Preview("Polish") {
     ContentView()
         .environment(\.locale, Locale(identifier: "PL"))
+        .task { try? Tips.resetDatastore() }
+        .task {
+            try? Tips.configure([
+                .datastoreLocation(.applicationDefault)
+            ])
+        }
 }
