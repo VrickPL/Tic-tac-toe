@@ -23,6 +23,7 @@ struct RegisterView: View {
                     .foregroundColor(.black)
             }
             .overlay(RoundedRectangle(cornerRadius: 64).stroke(Color.black, lineWidth: 3))
+            .padding(.bottom)
             
             Group {
                 TextField("email", text: $email)
