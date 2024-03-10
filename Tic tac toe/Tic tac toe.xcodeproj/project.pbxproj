@@ -23,6 +23,7 @@
 		7463A4BD2B9E3C5900C3FBC9 /* ToastPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463A4BC2B9E3C5900C3FBC9 /* ToastPopUpView.swift */; };
 		7463A4C02B9E3C8500C3FBC9 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463A4BF2B9E3C8500C3FBC9 /* ImagePicker.swift */; };
 		7463A4C22B9E3E6B00C3FBC9 /* ToastOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463A4C12B9E3E6B00C3FBC9 /* ToastOptions.swift */; };
+		7499CAD22B9E5FCF0085B75D /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7499CAD12B9E5FCF0085B75D /* SplashScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		7463A4BC2B9E3C5900C3FBC9 /* ToastPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastPopUpView.swift; sourceTree = "<group>"; };
 		7463A4BF2B9E3C8500C3FBC9 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		7463A4C12B9E3E6B00C3FBC9 /* ToastOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastOptions.swift; sourceTree = "<group>"; };
+		7499CAD12B9E5FCF0085B75D /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				7463A4AB2B9E301500C3FBC9 /* RegisterView.swift */,
 				7463A4BC2B9E3C5900C3FBC9 /* ToastPopUpView.swift */,
 				7429A3FF2B9E582E00B34158 /* Tips */,
+				7499CAD12B9E5FCF0085B75D /* SplashScreenView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				7463A4C02B9E3C8500C3FBC9 /* ImagePicker.swift in Sources */,
 				7463A4C22B9E3E6B00C3FBC9 /* ToastOptions.swift in Sources */,
 				7463A4BD2B9E3C5900C3FBC9 /* ToastPopUpView.swift in Sources */,
+				7499CAD22B9E5FCF0085B75D /* SplashScreenView.swift in Sources */,
 				7463A4992B9E2C1100C3FBC9 /* ContentView.swift in Sources */,
 				7463A4972B9E2C1100C3FBC9 /* Tic_tac_toeApp.swift in Sources */,
 			);

@@ -12,7 +12,7 @@ import TipKit
 struct Tic_tac_toeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashScreenView()
                 .task {
                     try? Tips.configure([
                         .datastoreLocation(.applicationDefault)
