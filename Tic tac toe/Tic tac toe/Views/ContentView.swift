@@ -29,7 +29,7 @@ struct ContentView: View {
 
             }
             .navigationTitle("APP_NAME")
-            .background(Color(.init(white: 0, alpha: 0.05)))
+            .background(Color("BackgroundLoginColor"))
             .overlay(
                 Group {
                     if !isKeyboardVisible {
@@ -52,10 +52,10 @@ struct ContentView: View {
 #Preview("Polish") {
     ContentView()
         .environment(\.locale, Locale(identifier: "PL"))
-        .task { try? Tips.resetDatastore() }
-        .task {
-            try? Tips.configure([
-                .datastoreLocation(.applicationDefault)
-            ])
-        }
+//        .task { try? Tips.resetDatastore() }
+//        .task {
+//            try? Tips.configure([
+//                .datastoreLocation(.applicationDefault)
+//            ])
+//        }
 }
