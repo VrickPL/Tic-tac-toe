@@ -78,7 +78,12 @@ struct RegisterView: View {
             
             VStack {
                 Button {
-                    accountCreated = FirebaseManager.shared.createNewAccount(withEmail: email, password: password, image)
+                    if email.isValidEmail() {
+                        accountCreated = FirebaseManager.shared.createNewAccount(withEmail: email, password: password, image)
+                    } else {
+                        accountCreated = ToastOptions.INVALID_EMAIL
+                    }
+
                     showToast.toggle()
                 } label: {
                     HStack {
@@ -102,6 +107,15 @@ struct RegisterView: View {
         .onChange(of: isKeyboardFocused) {
             isKeyboardVisible = isKeyboardFocused
         }
+    }
+}
+
+private extension String {
+    func isValidEmail() -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: self)
     }
 }
 

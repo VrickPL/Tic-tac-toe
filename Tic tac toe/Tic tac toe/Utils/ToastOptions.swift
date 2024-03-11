@@ -14,6 +14,7 @@ enum ToastOptions: String {
     case STORED_IMAGE_SUCCESS = "stored_image_success"
     case STORED_IMAGE_RETRIEVE_FAILED = "stored_image_retrieve_failed"
     case STORED_IMAGE_PUSH_FAILED = "stored_image_push_failed"
+    case INVALID_EMAIL = "invalid_email"
     
     func getColor() -> Color {
         return switch self {

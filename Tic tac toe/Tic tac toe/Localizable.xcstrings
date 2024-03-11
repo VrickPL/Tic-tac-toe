@@ -137,6 +137,23 @@
         }
       }
     },
+    "invalid_email" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid email."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nieprawidłowy email."
+          }
+        }
+      }
+    },
     "login" : {
       "extractionState" : "manual",
       "localizations" : {
