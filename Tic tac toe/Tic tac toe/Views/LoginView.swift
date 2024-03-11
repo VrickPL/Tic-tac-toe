@@ -12,6 +12,9 @@ import SimpleToast
 struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
+    
+    @Binding var isKeyboardVisible: Bool
+    @FocusState var isKeyboardFocused: Bool
 
     @State private var showToast = false
     @State private var loggedInSuccess = false
@@ -30,7 +33,9 @@ struct LoginView: View {
                 TextField("email", text: $email)
                     .keyboardType(.emailAddress)
                     .autocapitalization(.none)
+                    .focused($isKeyboardFocused)
                 SecureField("password", text: $password)
+                    .focused($isKeyboardFocused)
             }
             .padding(12)
             .background(.white)
@@ -59,17 +64,18 @@ struct LoginView: View {
                 ToastPopUpView(text: "login_failed", color: Color.red)
             }
         }
+        .onChange(of: isKeyboardFocused) {
+            isKeyboardVisible = isKeyboardFocused
+        }
     }
-    
-    
  }
 
 #Preview("English") {
-    LoginView()
+    LoginView(isKeyboardVisible: .constant(false))
         .environment(\.locale, Locale(identifier: "EN"))
 }
 
 #Preview("Polish") {
-    LoginView()
+    LoginView(isKeyboardVisible: .constant(false))
         .environment(\.locale, Locale(identifier: "PL"))
 }

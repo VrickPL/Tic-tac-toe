@@ -10,6 +10,7 @@ import TipKit
 
 struct ContentView: View {
     @State private var isLoginMode = false
+    @State var isKeyboardVisible = false
 
     var body: some View {
         NavigationView {
@@ -21,17 +22,21 @@ struct ContentView: View {
                 .pickerStyle(SegmentedPickerStyle()).padding()
 
                 if isLoginMode {
-                    LoginView()
+                    LoginView(isKeyboardVisible: $isKeyboardVisible)
                 } else {
-                    RegisterView()
+                    RegisterView(isKeyboardVisible: $isKeyboardVisible)
                 }
 
             }
             .navigationTitle("APP_NAME")
             .background(Color(.init(white: 0, alpha: 0.05)))
             .overlay(
-                Text(LocalizedStringKey("author"))
-                    .foregroundStyle(.gray)
+                Group {
+                    if !isKeyboardVisible {
+                        Text(LocalizedStringKey("author"))
+                            .foregroundStyle(.gray)
+                    }
+                }
             , alignment: .bottom)
             
         }
