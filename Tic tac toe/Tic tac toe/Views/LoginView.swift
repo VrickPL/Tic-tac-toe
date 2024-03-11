@@ -38,6 +38,7 @@ struct LoginView: View {
                     .focused($isKeyboardFocused)
             }
             .padding(12)
+            .background(Color("TextInputColor"))
             .background(.white)
             .cornerRadius(5)
 

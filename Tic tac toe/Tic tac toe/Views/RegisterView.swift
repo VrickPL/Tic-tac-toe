@@ -29,6 +29,15 @@ struct RegisterView: View {
         modifierType: .slide,
         dismissOnTap: true
     )
+    
+    
+    private var imageOverlay: Color {
+        return if image != nil {
+            .blue
+        } else {
+            Color("RegisterImageColor")
+        }
+    }
 
 
     var body: some View {
@@ -49,9 +58,9 @@ struct RegisterView: View {
                     }
                 }
                 .popoverTip(ImageButtonTip(), arrowEdge: .bottom)
-                .foregroundColor(.black)
+                .foregroundColor(Color("RegisterImageColor"))
             }
-            .overlay(RoundedRectangle(cornerRadius: 64).stroke(Color.black, lineWidth: 3))
+            .overlay(RoundedRectangle(cornerRadius: 64).stroke(imageOverlay, lineWidth: 3))
             .padding(.bottom)
             
             Group {
@@ -63,6 +72,7 @@ struct RegisterView: View {
                     .focused($isKeyboardFocused)
             }
             .padding(12)
+            .background(Color("TextInputColor"))
             .background(.white)
             .cornerRadius(5)
             
