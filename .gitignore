@@ -93,3 +93,9 @@ iOSInjectionProject/
 #
 # Firebase GoogleService-Info.plist
 GoogleService-Info.plist
+
+# .DS_Store
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
