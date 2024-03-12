@@ -47,7 +47,10 @@ struct SplashScreenView: View {
                         }
                     }
                 }
-            }
+            }.overlay(
+                    Text(LocalizedStringKey("author"))
+                        .foregroundStyle(.gray),
+                    alignment: .bottom)
         }
     }
 }

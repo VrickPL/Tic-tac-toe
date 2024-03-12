@@ -11,16 +11,18 @@ import SimpleToast
 import TipKit
 
 struct RegisterView: View {
+    @Binding var isLogging: Bool
+
     @State private var email = ""
     @State private var password = ""
     
     @Binding var isKeyboardVisible: Bool
-    @FocusState var isKeyboardFocused: Bool
+    @FocusState private var isKeyboardFocused: Bool
     
     @State private var shouldShowImagePicker = false
-    @State var image: UIImage?
-    @State var isLoading = false
-    @ObservedObject var firebaseManager = FirebaseManager.shared
+    @State private var image: UIImage?
+    @State private var isLoading = false
+    @ObservedObject private var firebaseManager = FirebaseManager.shared
 
     @State private var showToast = false
     @State private var accountCreated: ToastOptions = .ACCOUNT_CREATED_FAILED
@@ -71,33 +73,32 @@ struct RegisterView: View {
                 .background(.white)
                 .cornerRadius(5)
                 
-                VStack {
-                    Button {
-                        if email.isValidEmail() {
-                            if password.isValidPassword() {
-                                accountCreated = firebaseManager.createNewAccount(withEmail: email, password: password, image)
-                            } else {
-                                accountCreated = ToastOptions.INVALID_PASSWORD
-                            }
+                Button {
+                    if email.isValidEmail() {
+                        if password.isValidPassword() {
+                            accountCreated = firebaseManager.createNewAccount(withEmail: email, password: password, image)
                         } else {
-                            accountCreated = ToastOptions.INVALID_EMAIL
+                            accountCreated = ToastOptions.INVALID_PASSWORD
                         }
-
-                        showToastIfNotWaiting()
-                    } label: {
-                        HStack {
-                            Spacer()
-                            Text("create_account").foregroundColor(.white).padding().bold()
-                            Spacer()
-                        }
-                        .background(.blue).cornerRadius(5)
+                    } else {
+                        accountCreated = ToastOptions.INVALID_EMAIL
                     }
-                }.padding()
+                    
+                    showToastIfNotWaiting()
+                } label: {
+                    HStack {
+                        Spacer()
+                        Text("create_account").foregroundColor(.white).padding().bold()
+                        Spacer()
+                    }
+                    .background(.blue).cornerRadius(5)
+                }
+                .padding()
             }
         }
         .padding()
         .simpleToast(isPresented: $showToast, options: toastOptions, onDismiss: {
-            //TODO: login and show new view
+            isLogging = accountCreated != .ACCOUNT_CREATED_SUCCESS
         }) {
             ToastPopUpView(text: accountCreated.rawValue, color: accountCreated.getColor())
         }
@@ -143,11 +144,11 @@ private extension String {
 }
 
 #Preview("English") {
-    RegisterView(isKeyboardVisible: .constant(false))
+    RegisterView(isLogging: .constant(true), isKeyboardVisible: .constant(false))
         .environment(\.locale, Locale(identifier: "EN"))
 }
 
 #Preview("Polish") {
-    RegisterView(isKeyboardVisible: .constant(false))
+    RegisterView(isLogging: .constant(true), isKeyboardVisible: .constant(false))
         .environment(\.locale, Locale(identifier: "PL"))
 }

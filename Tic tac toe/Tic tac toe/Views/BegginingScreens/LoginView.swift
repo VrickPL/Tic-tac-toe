@@ -10,11 +10,12 @@ import Firebase
 import SimpleToast
 
 struct LoginView: View {
+    @Binding var isLogging: Bool
     @State private var email = ""
     @State private var password = ""
     
     @Binding var isKeyboardVisible: Bool
-    @FocusState var isKeyboardFocused: Bool
+    @FocusState private var isKeyboardFocused: Bool
 
     @State private var showToast = false
     @State private var loggedInSuccess = false
@@ -57,7 +58,7 @@ struct LoginView: View {
         }
         .padding()
         .simpleToast(isPresented: $showToast, options: toastOptions, onDismiss: {
-            //TODO: login and show new view
+            isLogging = !loggedInSuccess
         }) {
             if loggedInSuccess {
                 ToastPopUpView(text: "login_success", color: Color.green)
@@ -72,11 +73,11 @@ struct LoginView: View {
  }
 
 #Preview("English") {
-    LoginView(isKeyboardVisible: .constant(false))
+    LoginView(isLogging: .constant(true), isKeyboardVisible: .constant(false))
         .environment(\.locale, Locale(identifier: "EN"))
 }
 
 #Preview("Polish") {
-    LoginView(isKeyboardVisible: .constant(false))
+    LoginView(isLogging: .constant(true), isKeyboardVisible: .constant(false))
         .environment(\.locale, Locale(identifier: "PL"))
 }
