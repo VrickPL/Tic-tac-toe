@@ -19,6 +19,8 @@ struct RegisterView: View {
     
     @State private var shouldShowImagePicker = false
     @State var image: UIImage?
+    @State var isLoading = false
+    @ObservedObject var firebaseManager = FirebaseManager.shared
 
     @State private var showToast = false
     @State private var accountCreated: ToastOptions = .ACCOUNT_CREATED_FAILED
@@ -29,71 +31,63 @@ struct RegisterView: View {
         modifierType: .slide,
         dismissOnTap: true
     )
-    
-    
-    private var imageOverlay: Color {
-        return if image != nil {
-            .blue
-        } else {
-            Color("RegisterImageColor")
-        }
-    }
 
 
     var body: some View {
-        
         VStack {
-            Button {
-                shouldShowImagePicker.toggle()
-            } label: {
-                VStack {
-                    if let image = image {
-                        Image(uiImage: image)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 128, height: 128)
-                            .cornerRadius(64)
-                    } else {
-                        Image(systemName: "person.fill").font(.system(size: 90)).padding()
-                    }
-                }
-                .popoverTip(ImageButtonTip(), arrowEdge: .bottom)
-                .foregroundColor(Color("RegisterImageColor"))
-            }
-            .overlay(RoundedRectangle(cornerRadius: 64).stroke(imageOverlay, lineWidth: 3))
-            .padding(.bottom)
-            
-            Group {
-                TextField("email", text: $email)
-                    .keyboardType(.emailAddress)
-                    .autocapitalization(.none)
-                    .focused($isKeyboardFocused)
-                SecureField("password", text: $password)
-                    .focused($isKeyboardFocused)
-            }
-            .padding(12)
-            .background(Color("TextInputColor"))
-            .background(.white)
-            .cornerRadius(5)
-            
-            VStack {
+            if accountCreated == ToastOptions.WAITING {
+                LoadingView()
+            } else {
                 Button {
-                    if email.isValidEmail() {
-                        accountCreated = FirebaseManager.shared.createNewAccount(withEmail: email, password: password, image)
-                    } else {
-                        accountCreated = ToastOptions.INVALID_EMAIL
-                    }
-
-                    showToast.toggle()
+                    shouldShowImagePicker.toggle()
                 } label: {
-                    HStack {
-                        Spacer()
-                        Text("create_account").foregroundColor(.white).padding().bold()
-                        Spacer()
+                    VStack {
+                        if let image = image {
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 128, height: 128)
+                                .cornerRadius(64)
+                        } else {
+                            Image(systemName: "person.fill").font(.system(size: 90)).padding()
+                        }
                     }
-                    .background(.blue).cornerRadius(5)
+                    .popoverTip(ImageButtonTip(), arrowEdge: .bottom)
+                    .foregroundColor(Color("OpositeColor"))
                 }
-            }.padding()
+                .overlay(RoundedRectangle(cornerRadius: 64).stroke(imageOverlay, lineWidth: 3))
+                .padding(.bottom)
+                
+                Group {
+                    TextField("email", text: $email)
+                        .keyboardType(.emailAddress)
+                        .autocapitalization(.none)
+                        .focused($isKeyboardFocused)
+                    SecureField("password", text: $password)
+                        .focused($isKeyboardFocused)
+                }
+                .padding(12)
+                .background(Color("TextInputColor"))
+                .background(.white)
+                .cornerRadius(5)
+                
+                VStack {
+                    Button {
+                        if email.isValidEmail() {
+                            accountCreated = firebaseManager.createNewAccount(withEmail: email, password: password, image)
+                        } else {
+                            accountCreated = ToastOptions.INVALID_EMAIL
+                        }
+                    } label: {
+                        HStack {
+                            Spacer()
+                            Text("create_account").foregroundColor(.white).padding().bold()
+                            Spacer()
+                        }
+                        .background(.blue).cornerRadius(5)
+                    }
+                }.padding()
+            }
         }
         .padding()
         .simpleToast(isPresented: $showToast, options: toastOptions, onDismiss: {
@@ -106,6 +100,21 @@ struct RegisterView: View {
         }
         .onChange(of: isKeyboardFocused) {
             isKeyboardVisible = isKeyboardFocused
+        }
+        .onChange(of: firebaseManager.toastMessage) {
+            accountCreated = firebaseManager.toastMessage
+            
+            if accountCreated != ToastOptions.WAITING {
+                showToast.toggle()
+            }
+        }
+    }
+    
+    private var imageOverlay: Color {
+        return if image != nil {
+            .blue
+        } else {
+            Color("OpositeColor")
         }
     }
 }

@@ -10,11 +10,12 @@ import Firebase
 import FirebaseStorage
 import SwiftUI
 
-class FirebaseManager {
+class FirebaseManager: ObservableObject {
     static let shared = FirebaseManager()
     
     let auth: Auth
     let storage: Storage
+    @Published var toastMessage = ToastOptions.WAITING
     
     private init() {
         FirebaseApp.configure()
@@ -34,22 +35,18 @@ class FirebaseManager {
     }
     
     public func createNewAccount(withEmail email: String, password: String,_ image: UIImage?) -> ToastOptions {
-        var toastMessage = ToastOptions.ACCOUNT_CREATED_FAILED
-
         auth.createUser(withEmail: email, password: password) { result, error in
             let accountCreatedSuccess = error == nil
             
-            
-            toastMessage = accountCreatedSuccess ? ToastOptions.ACCOUNT_CREATED_SUCCESS : ToastOptions.ACCOUNT_CREATED_FAILED
+            self.toastMessage = accountCreatedSuccess ? ToastOptions.ACCOUNT_CREATED_SUCCESS : ToastOptions.ACCOUNT_CREATED_FAILED
 
             let sendImage: ToastOptions? = accountCreatedSuccess ? self.persistImageToStorage(image) : nil
             
             if sendImage != nil && sendImage != ToastOptions.STORED_IMAGE_SUCCESS {
-                toastMessage = sendImage!
+                self.toastMessage = sendImage!
             }
-            
         }
-        
+
         return toastMessage
     }
     
