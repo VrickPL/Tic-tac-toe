@@ -74,10 +74,16 @@ struct RegisterView: View {
                 VStack {
                     Button {
                         if email.isValidEmail() {
-                            accountCreated = firebaseManager.createNewAccount(withEmail: email, password: password, image)
+                            if password.isValidPassword() {
+                                accountCreated = firebaseManager.createNewAccount(withEmail: email, password: password, image)
+                            } else {
+                                accountCreated = ToastOptions.INVALID_PASSWORD
+                            }
                         } else {
                             accountCreated = ToastOptions.INVALID_EMAIL
                         }
+
+                        showToastIfNotWaiting()
                     } label: {
                         HStack {
                             Spacer()
@@ -104,9 +110,13 @@ struct RegisterView: View {
         .onChange(of: firebaseManager.toastMessage) {
             accountCreated = firebaseManager.toastMessage
             
-            if accountCreated != ToastOptions.WAITING {
-                showToast.toggle()
-            }
+            showToastIfNotWaiting()
+        }
+    }
+    
+    private func showToastIfNotWaiting() {
+        if accountCreated != ToastOptions.WAITING {
+            showToast.toggle()
         }
     }
     
@@ -126,6 +136,10 @@ private extension String {
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: self)
     }
+    
+    func isValidPassword() -> Bool {
+            return self.count >= 4
+        }
 }
 
 #Preview("English") {
