@@ -1,6 +1,15 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
+    "1" : {
+
+    },
+    "2" : {
+
+    },
     "account_created_failed" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -69,6 +78,23 @@
         }
       }
     },
+    "continue_as_guest" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue as a guest."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontynuuj jako gość."
+          }
+        }
+      }
+    },
     "create_account" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -99,6 +125,25 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Email"
+          }
+        }
+      }
+    },
+    "Hello, World!" : {
+
+    },
+    "home" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dom"
           }
         }
       }
@@ -222,6 +267,23 @@
         }
       }
     },
+    "offline" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are currently offline."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Brak połączenia z internetem."
+          }
+        }
+      }
+    },
     "password" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -241,6 +303,22 @@
     },
     "Picker here" : {
 
+    },
+    "profile" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil"
+          }
+        }
+      }
     },
     "stored_image_push_failed" : {
       "extractionState" : "manual",

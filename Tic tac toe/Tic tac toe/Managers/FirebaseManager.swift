@@ -24,14 +24,12 @@ class FirebaseManager: ObservableObject {
         self.storage = Storage.storage()
     }
     
-    public func logIn(withEmail email: String, password: String) -> Bool {
-        var bool = false
-
+    public func logIn(withEmail email: String, password: String) -> ToastOptions {
         auth.signIn(withEmail: email, password: password) { result, error in
-            bool = error == nil
+            self.toastMessage = error == nil ? ToastOptions.LOGGED_IN_SUCCESS : ToastOptions.LOGGED_IN_FAILED
         }
         
-        return bool
+        return toastMessage
     }
     
     public func createNewAccount(withEmail email: String, password: String,_ image: UIImage?) -> ToastOptions {

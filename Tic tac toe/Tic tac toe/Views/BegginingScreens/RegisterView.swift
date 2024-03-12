@@ -11,19 +11,22 @@ import SimpleToast
 import TipKit
 
 struct RegisterView: View {
+    @Binding var isLogging: Bool
+    @ObservedObject var connectionManager = ConnectionManager()
+
     @State private var email = ""
     @State private var password = ""
     
     @Binding var isKeyboardVisible: Bool
-    @FocusState var isKeyboardFocused: Bool
+    @FocusState private var isKeyboardFocused: Bool
     
     @State private var shouldShowImagePicker = false
-    @State var image: UIImage?
-    @State var isLoading = false
-    @ObservedObject var firebaseManager = FirebaseManager.shared
+    @State private var image: UIImage?
+    @State private var isLoading = false
+    @ObservedObject private var firebaseManager = FirebaseManager.shared
 
     @State private var showToast = false
-    @State private var accountCreated: ToastOptions = .ACCOUNT_CREATED_FAILED
+    @State private var accountCreatedStatus: ToastOptions = .ACCOUNT_CREATED_FAILED
     private let toastOptions = SimpleToastOptions(
         alignment: .top,
         hideAfter: 2,
@@ -35,7 +38,7 @@ struct RegisterView: View {
 
     var body: some View {
         VStack {
-            if accountCreated == ToastOptions.WAITING {
+            if accountCreatedStatus == ToastOptions.WAITING {
                 LoadingView()
             } else {
                 Button {
@@ -71,35 +74,38 @@ struct RegisterView: View {
                 .background(.white)
                 .cornerRadius(5)
                 
-                VStack {
-                    Button {
+                Button {
+                    accountCreatedStatus = if connectionManager.isActive {
                         if email.isValidEmail() {
                             if password.isValidPassword() {
-                                accountCreated = firebaseManager.createNewAccount(withEmail: email, password: password, image)
+                                 firebaseManager.createNewAccount(withEmail: email, password: password, image)
                             } else {
-                                accountCreated = ToastOptions.INVALID_PASSWORD
+                                 ToastOptions.INVALID_PASSWORD
                             }
                         } else {
-                            accountCreated = ToastOptions.INVALID_EMAIL
+                             ToastOptions.INVALID_EMAIL
                         }
-
-                        showToastIfNotWaiting()
-                    } label: {
-                        HStack {
-                            Spacer()
-                            Text("create_account").foregroundColor(.white).padding().bold()
-                            Spacer()
-                        }
-                        .background(.blue).cornerRadius(5)
+                    } else {
+                        ToastOptions.OFFLINE
                     }
-                }.padding()
+                    
+                    showToastIfNotWaiting()
+                } label: {
+                    HStack {
+                        Spacer()
+                        Text("create_account").foregroundColor(.white).padding().bold()
+                        Spacer()
+                    }
+                    .background(.blue).cornerRadius(5)
+                }
+                .padding(.top)
             }
         }
         .padding()
         .simpleToast(isPresented: $showToast, options: toastOptions, onDismiss: {
-            //TODO: login and show new view
+            isLogging = accountCreatedStatus != .ACCOUNT_CREATED_SUCCESS
         }) {
-            ToastPopUpView(text: accountCreated.rawValue, color: accountCreated.getColor())
+            ToastPopUpView(text: accountCreatedStatus.rawValue, color: accountCreatedStatus.getColor())
         }
         .fullScreenCover(isPresented: $shouldShowImagePicker, onDismiss: nil) {
             ImagePicker(image: $image)
@@ -108,14 +114,14 @@ struct RegisterView: View {
             isKeyboardVisible = isKeyboardFocused
         }
         .onChange(of: firebaseManager.toastMessage) {
-            accountCreated = firebaseManager.toastMessage
+            accountCreatedStatus = firebaseManager.toastMessage
             
             showToastIfNotWaiting()
         }
     }
     
     private func showToastIfNotWaiting() {
-        if accountCreated != ToastOptions.WAITING {
+        if accountCreatedStatus != ToastOptions.WAITING {
             showToast.toggle()
         }
     }
@@ -143,11 +149,11 @@ private extension String {
 }
 
 #Preview("English") {
-    RegisterView(isKeyboardVisible: .constant(false))
+    RegisterView(isLogging: .constant(true), isKeyboardVisible: .constant(false))
         .environment(\.locale, Locale(identifier: "EN"))
 }
 
 #Preview("Polish") {
-    RegisterView(isKeyboardVisible: .constant(false))
+    RegisterView(isLogging: .constant(true), isKeyboardVisible: .constant(false))
         .environment(\.locale, Locale(identifier: "PL"))
 }
