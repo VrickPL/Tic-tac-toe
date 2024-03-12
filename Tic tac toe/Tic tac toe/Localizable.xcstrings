@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "1" : {
 
     },
@@ -125,6 +128,9 @@
           }
         }
       }
+    },
+    "Hello, World!" : {
+
     },
     "home" : {
       "localizations" : {
@@ -257,6 +263,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zalogowano się pomyślnie."
+          }
+        }
+      }
+    },
+    "offline" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are currently offline."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Brak połączenia z internetem."
           }
         }
       }

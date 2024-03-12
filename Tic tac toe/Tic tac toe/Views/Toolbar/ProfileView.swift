@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @State var isLoggedIn = false
+
+
     var body: some View {
         ZStack {
             Color("BackgroundColor").ignoresSafeArea()
-            
-            var isLoggedIn = false
             
             if isLoggedIn {
                 Circle()

@@ -17,10 +17,13 @@ enum ToastOptions: String {
     case INVALID_EMAIL = "invalid_email"
     case INVALID_PASSWORD = "invalid_password"
     case WAITING = "waiting"
+    case OFFLINE = "offline"
+    case LOGGED_IN_SUCCESS = "login_success"
+    case LOGGED_IN_FAILED = "login_failed"
     
     func getColor() -> Color {
         return switch self {
-        case .ACCOUNT_CREATED_SUCCESS, .STORED_IMAGE_SUCCESS:
+        case .ACCOUNT_CREATED_SUCCESS, .STORED_IMAGE_SUCCESS, .LOGGED_IN_SUCCESS:
             Color.green
         default:
             Color.red
