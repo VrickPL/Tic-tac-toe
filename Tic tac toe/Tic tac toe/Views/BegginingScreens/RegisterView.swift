@@ -18,7 +18,8 @@ struct RegisterView: View {
     @State private var password = ""
     
     @Binding var isKeyboardVisible: Bool
-    @FocusState private var isKeyboardFocused: Bool
+    @FocusState private var emailKeyboardFocused: Bool
+    @FocusState private var passwordKeyboardFocused: Bool
     
     @State private var shouldShowImagePicker = false
     @State private var image: UIImage?
@@ -65,9 +66,9 @@ struct RegisterView: View {
                     TextField("email", text: $email)
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
-                        .focused($isKeyboardFocused)
+                        .focused($emailKeyboardFocused)
                     SecureField("password", text: $password)
-                        .focused($isKeyboardFocused)
+                        .focused($passwordKeyboardFocused)
                 }
                 .padding(12)
                 .background(Color("TextInputColor"))
@@ -110,13 +111,18 @@ struct RegisterView: View {
         .fullScreenCover(isPresented: $shouldShowImagePicker, onDismiss: nil) {
             ImagePicker(image: $image)
         }
-        .onChange(of: isKeyboardFocused) {
-            isKeyboardVisible = isKeyboardFocused
-        }
         .onChange(of: firebaseManager.toastMessage) {
             accountCreatedStatus = firebaseManager.toastMessage
             
             showToastIfNotWaiting()
+        }
+        .onChange(of: [emailKeyboardFocused, passwordKeyboardFocused]) {
+            isKeyboardVisible = emailKeyboardFocused || passwordKeyboardFocused
+        }
+        .onTapGesture {
+            if emailKeyboardFocused || passwordKeyboardFocused {
+                hideKeyboard()
+            }
         }
     }
     

@@ -17,7 +17,8 @@ struct LoginView: View {
     @State private var password = ""
     
     @Binding var isKeyboardVisible: Bool
-    @FocusState private var isKeyboardFocused: Bool
+    @FocusState private var emailKeyboardFocused: Bool
+    @FocusState private var passwordKeyboardFocused: Bool
 
     @State private var isLoading = false
     @ObservedObject private var firebaseManager = FirebaseManager.shared
@@ -42,9 +43,9 @@ struct LoginView: View {
                     TextField("email", text: $email)
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
-                        .focused($isKeyboardFocused)
+                        .focused($emailKeyboardFocused)
                     SecureField("password", text: $password)
-                        .focused($isKeyboardFocused)
+                        .focused($passwordKeyboardFocused)
                 }
                 .padding(12)
                 .background(Color("TextInputColor"))
@@ -76,13 +77,18 @@ struct LoginView: View {
         }) {
             ToastPopUpView(text: loggedInStatus.rawValue, color: loggedInStatus.getColor())
         }
-        .onChange(of: isKeyboardFocused) {
-            isKeyboardVisible = isKeyboardFocused
-        }
         .onChange(of: firebaseManager.toastMessage) {
             loggedInStatus = firebaseManager.toastMessage
             
             showToastIfNotWaiting()
+        }
+        .onChange(of: [emailKeyboardFocused, passwordKeyboardFocused]) {
+            isKeyboardVisible = emailKeyboardFocused || passwordKeyboardFocused
+        }
+        .onTapGesture {
+            if emailKeyboardFocused || passwordKeyboardFocused {
+                hideKeyboard()
+            }
         }
     }
     

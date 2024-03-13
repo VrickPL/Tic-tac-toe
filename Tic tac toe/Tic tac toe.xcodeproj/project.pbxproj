@@ -29,6 +29,7 @@
 		7467A70B2BA113B10048C613 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7467A70A2BA113B10048C613 /* SettingsView.swift */; };
 		7467A70D2BA113BE0048C613 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7467A70C2BA113BE0048C613 /* ToolbarView.swift */; };
 		7467A70F2BA1149A0048C613 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7467A70E2BA1149A0048C613 /* GoogleService-Info.plist */; };
+		74882DE02BA269430007D249 /* KeyboardHider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74882DDF2BA269430007D249 /* KeyboardHider.swift */; };
 		7499CAD22B9E5FCF0085B75D /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7499CAD12B9E5FCF0085B75D /* SplashScreenView.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		7467A70A2BA113B10048C613 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		7467A70C2BA113BE0048C613 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		7467A70E2BA1149A0048C613 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		74882DDF2BA269430007D249 /* KeyboardHider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHider.swift; sourceTree = "<group>"; };
 		7499CAD12B9E5FCF0085B75D /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +175,7 @@
 			children = (
 				7463A4BC2B9E3C5900C3FBC9 /* ToastPopUpView.swift */,
 				7467A7022BA113570048C613 /* LoadingView.swift */,
+				74882DDF2BA269430007D249 /* KeyboardHider.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				7463A4992B9E2C1100C3FBC9 /* ContentView.swift in Sources */,
 				7467A6FD2BA112C90048C613 /* ConnectionManager.swift in Sources */,
 				7467A7072BA113930048C613 /* ProfileView.swift in Sources */,
+				74882DE02BA269430007D249 /* KeyboardHider.swift in Sources */,
 				7463A4972B9E2C1100C3FBC9 /* Tic_tac_toeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
