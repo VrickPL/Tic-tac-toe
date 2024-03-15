@@ -18,47 +18,70 @@ struct ProfileView: View {
 
 
     var body: some View {
-        ZStack {
-            Color("BackgroundColor").ignoresSafeArea()
-            if isLoggedIn {
-                VStack {
-                    ProfileImageView(image: $image)
-                    
-                    fullNameText
+        NavigationView {
+            ZStack {
+                Color("BackgroundColor").ignoresSafeArea()
+                if isLoggedIn {
+                    VStack {
+                        NavigationLink(destination: EditProfileView()) {
+                            ProfileImageView(image: $image)
+                        }
+                        
+                        
+                        NavigationLink(destination: EditProfileView()) {
+                            fullNameText
+                        }
                         .padding(.bottom)
-                    if let bio = bio {
-                        Text(bio)
-                    }
-                    emailText
-                    
-                    Button {
-                        // showPreviousGames()
-                    } label: {
-                        Text("edit_profile")
-                            .tint(.white)
-                            .padding()
-                            .background(Color(.gray))
-                            .cornerRadius(15)
+                        
+                        if let bio = bio {
+                            NavigationLink(destination: EditProfileView()) {
+                                Text(bio)
+                            }
+                        }
+                        NavigationLink(destination: EditProfileView()) {
+                            emailText
+                        }
+                        .padding()
+                        
+                        
+                        NavigationLink(destination: EditProfileView()) {
+                            Text("edit_profile")
+                                .tint(.white)
+                                .padding()
+                                .background(Color(.gray))
+                                .cornerRadius(15)
+                        }
+                        .padding()
+                        
+                        Spacer()
+                        
+                        NavigationLink(destination: EditProfileView()) {
+                            Text("show_previous_games")
+                                .tint(.white)
+                                .padding()
+                                .background(Color(.blue))
+                                .cornerRadius(15)
+                        }
+                        .padding()
+                        
+                        Spacer()
+                        
+                        Button {
+                            // logout
+                        } label: {
+                            Text("logout")
+                                .tint(.blue)
+                                .padding()
+                                .cornerRadius(15)
+                        }
+                        
+                        
                     }
                     .padding()
-                    
-                    Spacer()
-                    
-                    Button {
-                        // editProfile()
-                    } label: {
-                        Text("show_previous_games")
-                            .tint(.white)
-                            .padding()
-                            .background(Color(.blue))
-                            .cornerRadius(15)
-                    }
-                    .padding()
+                } else {
+                    ContentView(showAppName: false, showContinueAsGuest: false)
+                        .padding(.bottom)
                 }
-                .padding()
-            } else {
-                ContentView(showAppName: false, showContinueAsGuest: false)
-                    .padding(.bottom)
             }
         }
     }

@@ -31,6 +31,8 @@
 		7467A70F2BA1149A0048C613 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7467A70E2BA1149A0048C613 /* GoogleService-Info.plist */; };
 		74882DE02BA269430007D249 /* KeyboardHider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74882DDF2BA269430007D249 /* KeyboardHider.swift */; };
 		7499CAD22B9E5FCF0085B75D /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7499CAD12B9E5FCF0085B75D /* SplashScreenView.swift */; };
+		74A9940B2BA4F7AF003F0AD3 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A9940A2BA4F7AF003F0AD3 /* EditProfileView.swift */; };
+		74A9940D2BA4F8B3003F0AD3 /* PreviousGamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A9940C2BA4F8B3003F0AD3 /* PreviousGamesView.swift */; };
 		74B615CF2BA4AF8B00986E04 /* ProfileImageButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B615CE2BA4AF8B00986E04 /* ProfileImageButtonView.swift */; };
 		74B615D12BA4B25C00986E04 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B615D02BA4B25C00986E04 /* ProfileImageView.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +60,8 @@
 		7467A70E2BA1149A0048C613 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74882DDF2BA269430007D249 /* KeyboardHider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHider.swift; sourceTree = "<group>"; };
 		7499CAD12B9E5FCF0085B75D /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		74A9940A2BA4F7AF003F0AD3 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		74A9940C2BA4F8B3003F0AD3 /* PreviousGamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousGamesView.swift; sourceTree = "<group>"; };
 		74B615CE2BA4AF8B00986E04 /* ProfileImageButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageButtonView.swift; sourceTree = "<group>"; };
 		74B615D02BA4B25C00986E04 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,6 +174,8 @@
 				7467A7062BA113930048C613 /* ProfileView.swift */,
 				7467A70A2BA113B10048C613 /* SettingsView.swift */,
 				7467A70C2BA113BE0048C613 /* ToolbarView.swift */,
+				74A9940A2BA4F7AF003F0AD3 /* EditProfileView.swift */,
+				74A9940C2BA4F8B3003F0AD3 /* PreviousGamesView.swift */,
 			);
 			path = Toolbar;
 			sourceTree = "<group>";
@@ -278,12 +284,14 @@
 				74B615D12BA4B25C00986E04 /* ProfileImageView.swift in Sources */,
 				7467A7032BA113570048C613 /* LoadingView.swift in Sources */,
 				7463A4C22B9E3E6B00C3FBC9 /* ToastOptions.swift in Sources */,
+				74A9940B2BA4F7AF003F0AD3 /* EditProfileView.swift in Sources */,
 				7463A4BD2B9E3C5900C3FBC9 /* ToastPopUpView.swift in Sources */,
 				7499CAD22B9E5FCF0085B75D /* SplashScreenView.swift in Sources */,
 				7467A70D2BA113BE0048C613 /* ToolbarView.swift in Sources */,
 				7467A7052BA113880048C613 /* MainMenuView.swift in Sources */,
 				7463A4992B9E2C1100C3FBC9 /* ContentView.swift in Sources */,
 				7467A6FD2BA112C90048C613 /* ConnectionManager.swift in Sources */,
+				74A9940D2BA4F8B3003F0AD3 /* PreviousGamesView.swift in Sources */,
 				7467A7072BA113930048C613 /* ProfileView.swift in Sources */,
 				74882DE02BA269430007D249 /* KeyboardHider.swift in Sources */,
 				7463A4972B9E2C1100C3FBC9 /* Tic_tac_toeApp.swift in Sources */,

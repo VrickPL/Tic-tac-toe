@@ -284,6 +284,23 @@
         }
       }
     },
+    "logout" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log out"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wyloguj się"
+          }
+        }
+      }
+    },
     "name_and_surname" : {
       "extractionState" : "manual",
       "localizations" : {
