@@ -20,8 +20,7 @@ struct RegisterView: View {
     @Binding var isKeyboardVisible: Bool
     @FocusState private var emailKeyboardFocused: Bool
     @FocusState private var passwordKeyboardFocused: Bool
-    
-    @State private var shouldShowImagePicker = false
+
     @State private var image: UIImage?
     @State private var isLoading = false
     @ObservedObject private var firebaseManager = FirebaseManager.shared
@@ -42,25 +41,7 @@ struct RegisterView: View {
             if accountCreatedStatus == ToastOptions.WAITING {
                 LoadingView()
             } else {
-                Button {
-                    shouldShowImagePicker.toggle()
-                } label: {
-                    VStack {
-                        if let image = image {
-                            Image(uiImage: image)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 128, height: 128)
-                                .cornerRadius(64)
-                        } else {
-                            Image(systemName: "person.fill").font(.system(size: 90)).padding()
-                        }
-                    }
-                    .popoverTip(ImageButtonTip(), arrowEdge: .bottom)
-                    .foregroundColor(Color("OpositeColor"))
-                }
-                .overlay(RoundedRectangle(cornerRadius: 64).stroke(imageOverlay, lineWidth: 3))
-                .padding(.bottom)
+                ProfileImageButtonView(image: $image)
                 
                 Group {
                     TextField("email", text: $email)
@@ -108,9 +89,6 @@ struct RegisterView: View {
         }) {
             ToastPopUpView(text: accountCreatedStatus.rawValue, color: accountCreatedStatus.getColor())
         }
-        .fullScreenCover(isPresented: $shouldShowImagePicker, onDismiss: nil) {
-            ImagePicker(image: $image)
-        }
         .onChange(of: firebaseManager.toastMessage) {
             accountCreatedStatus = firebaseManager.toastMessage
             
@@ -129,14 +107,6 @@ struct RegisterView: View {
     private func showToastIfNotWaiting() {
         if accountCreatedStatus != ToastOptions.WAITING {
             showToast.toggle()
-        }
-    }
-    
-    private var imageOverlay: Color {
-        return if image != nil {
-            .blue
-        } else {
-            Color("OpositeColor")
         }
     }
 }

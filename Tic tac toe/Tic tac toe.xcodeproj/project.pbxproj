@@ -31,6 +31,8 @@
 		7467A70F2BA1149A0048C613 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7467A70E2BA1149A0048C613 /* GoogleService-Info.plist */; };
 		74882DE02BA269430007D249 /* KeyboardHider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74882DDF2BA269430007D249 /* KeyboardHider.swift */; };
 		7499CAD22B9E5FCF0085B75D /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7499CAD12B9E5FCF0085B75D /* SplashScreenView.swift */; };
+		74B615CF2BA4AF8B00986E04 /* ProfileImageButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B615CE2BA4AF8B00986E04 /* ProfileImageButtonView.swift */; };
+		74B615D12BA4B25C00986E04 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B615D02BA4B25C00986E04 /* ProfileImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		7467A70E2BA1149A0048C613 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74882DDF2BA269430007D249 /* KeyboardHider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHider.swift; sourceTree = "<group>"; };
 		7499CAD12B9E5FCF0085B75D /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		74B615CE2BA4AF8B00986E04 /* ProfileImageButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageButtonView.swift; sourceTree = "<group>"; };
+		74B615D02BA4B25C00986E04 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,8 @@
 				7463A4BC2B9E3C5900C3FBC9 /* ToastPopUpView.swift */,
 				7467A7022BA113570048C613 /* LoadingView.swift */,
 				74882DDF2BA269430007D249 /* KeyboardHider.swift */,
+				74B615CE2BA4AF8B00986E04 /* ProfileImageButtonView.swift */,
+				74B615D02BA4B25C00986E04 /* ProfileImageView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -268,6 +274,8 @@
 				7463A4AC2B9E301500C3FBC9 /* RegisterView.swift in Sources */,
 				7463A4B42B9E39A100C3FBC9 /* FirebaseManager.swift in Sources */,
 				7463A4C02B9E3C8500C3FBC9 /* ImagePicker.swift in Sources */,
+				74B615CF2BA4AF8B00986E04 /* ProfileImageButtonView.swift in Sources */,
+				74B615D12BA4B25C00986E04 /* ProfileImageView.swift in Sources */,
 				7467A7032BA113570048C613 /* LoadingView.swift in Sources */,
 				7463A4C22B9E3E6B00C3FBC9 /* ToastOptions.swift in Sources */,
 				7463A4BD2B9E3C5900C3FBC9 /* ToastPopUpView.swift in Sources */,
