@@ -25,11 +25,11 @@ struct ProfileImageView: View {
         }
         .popoverTip(ImageButtonTip(), arrowEdge: .bottom)
         .foregroundColor(Color("OpositeColor"))
-        .overlay(RoundedRectangle(cornerRadius: 64).stroke(imageOverlay, lineWidth: 3))
+        .overlay(RoundedRectangle(cornerRadius: 64).stroke(imageOverlayColor, lineWidth: 3))
         .padding(.bottom)
     }
     
-    private var imageOverlay: Color {
+    private var imageOverlayColor: Color {
         return if image != nil {
             .blue
         } else {

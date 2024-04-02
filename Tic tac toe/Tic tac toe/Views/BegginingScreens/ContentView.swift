@@ -17,44 +17,54 @@ struct ContentView: View {
     var showContinueAsGuest = true
 
     var body: some View {
-        if isLogging {
-            NavigationView {
-                ScrollView {
-                    Picker(selection: $isLoginMode, label: Text("Picker here")) {
-                        Text("login").tag(true)
-                        Text("create_account").tag(false)
-                    }
-                    .pickerStyle(SegmentedPickerStyle()).padding()
-                    
-                    if isLoginMode {
-                        LoginView(isLogging: $isLogging, isKeyboardVisible: $isKeyboardVisible)
-                    } else {
-                        RegisterView(isLogging: $isLogging, isKeyboardVisible: $isKeyboardVisible)
-                    }
-                    
-                    if showContinueAsGuest {
-                        Button {
-                            isLogging = false
-                        } label: {
-                            Text("continue_as_guest")
+        NavigationView {
+            VStack {
+                if isLogging {
+                    ScrollView {
+                        Picker(selection: $isLoginMode, label: Text("Picker here")) {
+                            Text("login").tag(true)
+                            Text("create_account").tag(false)
+                        }
+                        .pickerStyle(SegmentedPickerStyle()).padding()
+                        
+                        if isLoginMode {
+                            LoginView(isLogging: $isLogging, isKeyboardVisible: $isKeyboardVisible)
+                        } else {
+                            RegisterView(isLogging: $isLogging, isKeyboardVisible: $isKeyboardVisible)
+                        }
+                        
+                        if showContinueAsGuest {
+                            Button {
+                                isLogging = false
+                            } label: {
+                                Text("continue_as_guest")
+                            }
                         }
                     }
+                    .navigationTitle(showAppName ? "APP_NAME" : "")
+                    .background(Color("BackgroundLoginColor"))
+                    .overlay(
+                        Group {
+                            if !isKeyboardVisible {
+                                Text(LocalizedStringKey("author"))
+                                    .foregroundStyle(.gray)
+                            }
+                        },
+                        alignment: .bottom)
+                    
+                } else {
+                    ToolbarView()
                 }
-                .navigationTitle(showAppName ? "APP_NAME" : "")
-                .background(Color("BackgroundLoginColor"))
-                .overlay(
-                    Group {
-                        if !isKeyboardVisible {
-                            Text(LocalizedStringKey("author"))
-                                .foregroundStyle(.gray)
-                        }
-                    },
-                    alignment: .bottom)
-                
             }
             .navigationViewStyle(StackNavigationViewStyle())
-        } else {
-            ToolbarView()
+            .navigationBarItems(
+                trailing: NavigationLink(destination: SettingsView()) {
+                    Image(systemName: "gearshape.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 30)
+                }
+            )
         }
     }
 }

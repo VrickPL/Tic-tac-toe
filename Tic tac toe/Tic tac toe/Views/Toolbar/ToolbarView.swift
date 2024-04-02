@@ -10,41 +10,27 @@ import SwiftUI
 struct ToolbarView: View {
     var body: some View {
         NavigationView {
-            ZStack {
-                Color("BackgroundColor")
-                    .ignoresSafeArea()
-                VStack {
-                    HStack {
-                        Spacer()
-                        NavigationLink(destination: SettingsView()) {
-                            Image(systemName: "gearshape.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 30)
-                        }
-                        .padding(.trailing)
+            VStack {
+                TabView {
+                    Group {
+                        MainMenuView()
+                            .tabItem {
+                                Image(systemName: "house")
+                                Text("home")
+                            }
+                        
+                        ProfileView()
+                            .tabItem {
+                                Image(systemName: "person")
+                                Text("profile")
+                            }
                     }
-                    
-                    TabView {
-                        Group {
-                            MainMenuView()
-                                .tabItem {
-                                    Image(systemName: "house")
-                                    Text("home")
-                                }
-                            
-                            ProfileView()
-                                .tabItem {
-                                    Image(systemName: "person")
-                                    Text("profile")
-                                }
-                        }
-                        .toolbarBackground(Color("ToolbarBackgroundColor"), for: .tabBar)
-                        .toolbarBackground(.visible, for: .tabBar)
-                    }
+                    .toolbarBackground(Color("ToolbarBackgroundColor"), for: .tabBar)
+                    .toolbarBackground(.visible, for: .tabBar)
                 }
             }
         }
+        .background(Color("BackgroundColor"))
     }
 }
 

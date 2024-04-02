@@ -31,6 +31,9 @@
 		7467A70F2BA1149A0048C613 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7467A70E2BA1149A0048C613 /* GoogleService-Info.plist */; };
 		74882DE02BA269430007D249 /* KeyboardHider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74882DDF2BA269430007D249 /* KeyboardHider.swift */; };
 		7499CAD22B9E5FCF0085B75D /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7499CAD12B9E5FCF0085B75D /* SplashScreenView.swift */; };
+		74A64F6F2BBC6CA80025E5B9 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A64F6E2BBC6CA80025E5B9 /* Keys.swift */; };
+		74A64F712BBC6CB40025E5B9 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A64F702BBC6CB40025E5B9 /* Language.swift */; };
+		74A64F732BBC6CBC0025E5B9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A64F722BBC6CBC0025E5B9 /* Theme.swift */; };
 		74B615CF2BA4AF8B00986E04 /* ProfileImageButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B615CE2BA4AF8B00986E04 /* ProfileImageButtonView.swift */; };
 		74B615D12BA4B25C00986E04 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B615D02BA4B25C00986E04 /* ProfileImageView.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +61,9 @@
 		7467A70E2BA1149A0048C613 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74882DDF2BA269430007D249 /* KeyboardHider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHider.swift; sourceTree = "<group>"; };
 		7499CAD12B9E5FCF0085B75D /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		74A64F6E2BBC6CA80025E5B9 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		74A64F702BBC6CB40025E5B9 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		74A64F722BBC6CBC0025E5B9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		74B615CE2BA4AF8B00986E04 /* ProfileImageButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageButtonView.swift; sourceTree = "<group>"; };
 		74B615D02BA4B25C00986E04 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +154,9 @@
 			children = (
 				7463A4BF2B9E3C8500C3FBC9 /* ImagePicker.swift */,
 				7463A4C12B9E3E6B00C3FBC9 /* ToastOptions.swift */,
+				74A64F6E2BBC6CA80025E5B9 /* Keys.swift */,
+				74A64F702BBC6CB40025E5B9 /* Language.swift */,
+				74A64F722BBC6CBC0025E5B9 /* Theme.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -271,16 +280,19 @@
 				7467A70B2BA113B10048C613 /* SettingsView.swift in Sources */,
 				7463A4AA2B9E300600C3FBC9 /* LoginView.swift in Sources */,
 				7429A3FE2B9E511B00B34158 /* ImageButtonTip.swift in Sources */,
+				74A64F712BBC6CB40025E5B9 /* Language.swift in Sources */,
 				7463A4AC2B9E301500C3FBC9 /* RegisterView.swift in Sources */,
 				7463A4B42B9E39A100C3FBC9 /* FirebaseManager.swift in Sources */,
 				7463A4C02B9E3C8500C3FBC9 /* ImagePicker.swift in Sources */,
 				74B615CF2BA4AF8B00986E04 /* ProfileImageButtonView.swift in Sources */,
 				74B615D12BA4B25C00986E04 /* ProfileImageView.swift in Sources */,
 				7467A7032BA113570048C613 /* LoadingView.swift in Sources */,
+				74A64F6F2BBC6CA80025E5B9 /* Keys.swift in Sources */,
 				7463A4C22B9E3E6B00C3FBC9 /* ToastOptions.swift in Sources */,
 				7463A4BD2B9E3C5900C3FBC9 /* ToastPopUpView.swift in Sources */,
 				7499CAD22B9E5FCF0085B75D /* SplashScreenView.swift in Sources */,
 				7467A70D2BA113BE0048C613 /* ToolbarView.swift in Sources */,
+				74A64F732BBC6CBC0025E5B9 /* Theme.swift in Sources */,
 				7467A7052BA113880048C613 /* MainMenuView.swift in Sources */,
 				7463A4992B9E2C1100C3FBC9 /* ContentView.swift in Sources */,
 				7467A6FD2BA112C90048C613 /* ConnectionManager.swift in Sources */,
